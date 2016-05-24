@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="ngBoilerplate" ng-controller="AppCtrl">
+  <head>
+    <title ng-bind="pageTitle"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- compiled CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/ngbp-0.3.2.css" />
+    <!-- compiled JavaScript -->
+    <script type="text/javascript" src="assets/ngbp-0.3.2.js"></script>
+  </head>
+  <body>
+    <div class="container">
+        <h3 class="text-center">A Town Mouse and A Country Mouse</h3>
+    </div>
+    <div class="container">
+      <div words='A Town Mouse and a Country Mouse were friends. The Country Mouse one day invited his friend to come and see him at his home in the fields. The Town Mouse came and they sat down to a dinner of barleycorns and roots the latter of which had a distinctly earthy flavour.
+The flavour was not much to the taste of the guest and presently he broke out with "My poor dear friend, you live here no better than the ants. Now, you should just see how I fare! My larder is a regular horn of plenty. You must come and stay with me and I promise you shall live on the fat of the land."
+     So when he returned to town he took the Country Mouse with him and showed him into a larder containing flour and oatmeal and figs and honey and dates.
+     The Country Mouse had never seen anything like it and sat down to enjoy the luxuries his friend provided. But before they had well begun, the door of the larder opened and some one came in. The two Mice scampered off and hid themselves in a narrow and exceedingly uncomfortable hole. Presently, when all was quiet, they ventured out again. But some one else came in, and off they scuttled again. This was too much for the visitor. "Good bye," said he, "I am off. You live in the lap of luxury, I can see, but you are surrounded by dangers whereas at home I can enjoy my simple dinner of roots and corn in peace." ' clicked-paragraph>
+      </div>
+      <div>
+        <script type="text/ng-template" id="myModalContent.html">
+          <div class="modal-header">
+            <h3 class="modal-title">Spell the missing word</h3>
+          </div>
+          <div class="modal-body text-center">
+            <div>
+              <div class="answer" ng-repeat="char in chars track by $index">
+                <span class="underline">{{answer[$index]}}</span>
+              </div>
+            </div>
+            <div class="chars" ng-repeat="char in shuffleChars track by $index">
+              <button type="button" class="btn letter-btn" ng-model="singleBtn.$index" btn-checkbox ng-click="updateAnswer(char,$index)" ng-disabled="checkBtn[$index]">
+                {{char}}
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-clean" ng-click="clean()">clean</button>
+            <button class="btn btn-hint" ng-click="hint()">hint</button>
+            <button class="btn btn-check" ng-click="check()">{{result?result:"check"}}</button>
+          </div>
+        </script>
+      </div>
+    </div>
+  </body>
+</html>
