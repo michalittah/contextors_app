@@ -618,7 +618,7 @@ module.exports = function ( grunt ) {
     });
 
     grunt.file.copy('src/index.html', this.data.dir + '/index.html', { 
-      process: function ( contents, path ) {
+      process: function ( contents ) {
         return grunt.template.process( contents, {
           data: {
             scripts: jsFiles,
@@ -639,7 +639,7 @@ module.exports = function ( grunt ) {
     var jsFiles = filterForJS( this.filesSrc );
     
     grunt.file.copy( 'karma/karma-unit.tpl.js', grunt.config( 'build_dir' ) + '/karma-unit.js', { 
-      process: function ( contents, path ) {
+      process: function ( contents ) {
         return grunt.template.process( contents, {
           data: {
             scripts: jsFiles
